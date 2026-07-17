@@ -1131,11 +1131,9 @@ export function Cafe() {
                   direction="row"
                   spacing={1}
                   useFlexGap
-                  flexWrap="wrap"
-                  sx={{
-                    mt: 3,
-                    mb: 2,
-                  }}
+
+                  sx={{ flexWrap: 'wrap', mt: 3,
+                    mb: 2, }}
                 >
                   {categories.map(
                     (item) => (
@@ -1237,9 +1235,10 @@ export function Cafe() {
                                     .id
                                 }
                                 direction="row"
-                                justifyContent="space-between"
+
                                 spacing={2}
-                              >
+                              
+                              sx={{ justifyContent: 'space-between' }}>
                                 <Box>
                                   <Typography
                                     sx={{
@@ -1294,8 +1293,8 @@ export function Cafe() {
 
                       <Stack
                         direction="row"
-                        justifyContent="space-between"
-                        sx={{ mb: 1 }}
+
+                        sx={{ justifyContent: 'space-between', mb: 1 }}
                       >
                         <Typography
                           sx={{
@@ -1320,8 +1319,8 @@ export function Cafe() {
 
                       <Stack
                         direction="row"
-                        justifyContent="space-between"
-                        sx={{ mb: 2 }}
+
+                        sx={{ justifyContent: 'space-between', mb: 2 }}
                       >
                         <Typography
                           sx={{
@@ -1407,9 +1406,10 @@ export function Cafe() {
                                   transaction.id
                                 }
                                 direction="row"
-                                justifyContent="space-between"
+
                                 spacing={2}
-                              >
+                              
+                              sx={{ justifyContent: 'space-between' }}>
                                 <Box>
                                   <Typography
                                     sx={{
@@ -1745,8 +1745,9 @@ function ProductGrid({
               <CardContent>
                 <Stack
                   direction="row"
-                  justifyContent="space-between"
-                >
+
+                
+                sx={{ justifyContent: 'space-between' }}>
                   <Box>
                     <Typography
                       sx={{

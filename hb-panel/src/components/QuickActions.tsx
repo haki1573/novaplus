@@ -127,12 +127,12 @@ export function QuickActions() {
             sm: 'row',
           }}
           spacing={2}
-          justifyContent="space-between"
-          alignItems={{
+
+
+          sx={{ justifyContent: 'space-between', alignItems: {
             xs: 'stretch',
             sm: 'center',
-          }}
-          sx={{ mb: 2.5 }}
+          }, mb: 2.5 }}
         >
           <Box>
             <Typography

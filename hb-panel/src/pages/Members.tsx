@@ -737,8 +737,9 @@ export function Members() {
                 lg: "row",
               }}
               spacing={1.5}
-              justifyContent="space-between"
-            >
+
+            
+            sx={{ justifyContent: 'space-between' }}>
               <TextField
                 placeholder="Ad, telefon, e-posta, kart veya QR ara..."
                 size="small"
@@ -884,8 +885,9 @@ export function Members() {
                           <Stack
                             direction="row"
                             spacing={1.3}
-                            alignItems="center"
-                          >
+
+                          
+                          sx={{ alignItems: 'center' }}>
                             <Avatar
                               sx={{
                                 width: 38,
@@ -1023,8 +1025,9 @@ export function Members() {
                         <TableCell>
                           <Stack
                             spacing={0.7}
-                            alignItems="flex-start"
-                          >
+
+                          
+                          sx={{ alignItems: 'flex-start' }}>
                             <Chip
                               icon={
                                 <CreditCardRounded />

@@ -691,11 +691,12 @@ export function Staff() {
                 lg: 'row',
               }}
               spacing={1}
-              alignItems={{
+
+            
+            sx={{ alignItems: {
                 xs: 'stretch',
                 lg: 'center',
-              }}
-            >
+              } }}>
               {tab === 2 ? (
                 <>
                   <TextField

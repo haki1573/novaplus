@@ -77,6 +77,7 @@ interface Turnstile {
 
 interface TurnstileEvent {
   id: string;
+  turnstileId?: string;
   turnstileName: string;
   memberName: string | null;
   credentialType: string | null;
@@ -565,14 +566,13 @@ export function Turnstiles() {
                 md: 'row',
               }}
               spacing={2}
-              sx={{
-                alignItems: {
-                  xs: 'stretch',
-                  md: 'center',
-                },
-                justifyContent: 'space-between',
-              }}
-            >
+
+
+            
+            sx={{ alignItems: {
+                xs: 'stretch',
+                md: 'center',
+              }, justifyContent: 'space-between' }}>
               <Box>
                 <Typography
                   sx={{
@@ -712,11 +712,10 @@ export function Turnstiles() {
                 <CardContent>
                   <Stack
                     direction="row"
+
                     spacing={2}
-                    sx={{
-                      justifyContent: 'space-between',
-                    }}
-                  >
+                  
+                  sx={{ justifyContent: 'space-between' }}>
                     <Stack
                       direction="row"
                       spacing={1.5}
@@ -930,11 +929,10 @@ export function Turnstiles() {
                 >
                   <Stack
                     direction="row"
+
                     spacing={2}
-                    sx={{
-                      justifyContent: 'space-between',
-                    }}
-                  >
+                  
+                  sx={{ justifyContent: 'space-between' }}>
                     <Box>
                       <Typography
                         sx={{
@@ -961,11 +959,10 @@ export function Turnstiles() {
                     </Box>
 
                     <Stack
+
                       spacing={0.5}
-                      sx={{
-                        alignItems: 'flex-end',
-                      }}
-                    >
+                    
+                    sx={{ alignItems: 'flex-end' }}>
                       <Chip
                         size="small"
                         color={

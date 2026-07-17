@@ -271,7 +271,7 @@ export function AccessCards() {
             <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.5}>
               <TextField size="small" placeholder="Üye, telefon veya kod ara..." value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                InputProps={{ startAdornment: <InputAdornment position="start"><SearchRounded /></InputAdornment> }}
+                slotProps={{ input: { startAdornment: <InputAdornment position="start"><SearchRounded /></InputAdornment> } }}
                 sx={{ width: { xs: '100%', sm: 290 } }} />
               <TextField select size="small" label="Tür" value={typeFilter}
                 onChange={(e) => setTypeFilter(e.target.value as 'ALL' | 'CARD' | 'QR')}
@@ -305,7 +305,7 @@ export function AccessCards() {
                           label={item.type === 'CARD' ? 'Kart' : 'QR'}
                           color={item.type === 'CARD' ? 'primary' : 'secondary'} variant="outlined" /></TableCell>
                         <TableCell><Typography component="code" sx={{ px: 1.25, py: 0.75, borderRadius: 2, backgroundColor: '#f1f5f9', fontWeight: 800 }}>{item.code}</Typography></TableCell>
-                        <TableCell><Stack direction="row" spacing={1.25} alignItems="center">
+                        <TableCell><Stack direction="row" spacing={1.25} sx={{ alignItems: 'center' }}>
                           <Avatar sx={{ width: 36, height: 36, fontSize: 13, fontWeight: 800, backgroundColor: '#dbeafe', color: '#1d4ed8' }}>{initials(name)}</Avatar>
                           <Box><Typography sx={{ fontWeight: 800 }}>{name}</Typography><Typography sx={{ color: '#94a3b8', fontSize: 12 }}>Üye #{item.memberId || '—'}</Typography></Box>
                         </Stack></TableCell>
@@ -353,7 +353,7 @@ export function AccessCards() {
               </Select>
             </FormControl>
             {cardId && <TextField fullWidth type="number" label="Kart Satış Fiyatı" value={cardPrice}
-              onChange={(e) => setCardPrice(e.target.value)} inputProps={{ min: 0, step: 0.01 }} />}
+              onChange={(e) => setCardPrice(e.target.value)} slotProps={{ htmlInput: { min: 0, step: 0.01 } }} />}
             <FormControl fullWidth><InputLabel id="sale-qr">QR</InputLabel>
               <Select labelId="sale-qr" label="QR" value={qrId}
                 onChange={(e) => { setQrId(e.target.value); setQrPrice(''); }}>
@@ -362,7 +362,7 @@ export function AccessCards() {
               </Select>
             </FormControl>
             {qrId && <TextField fullWidth type="number" label="QR Satış Fiyatı" value={qrPrice}
-              onChange={(e) => setQrPrice(e.target.value)} inputProps={{ min: 0, step: 0.01 }} />}
+              onChange={(e) => setQrPrice(e.target.value)} slotProps={{ htmlInput: { min: 0, step: 0.01 } }} />}
             <TextField fullWidth multiline minRows={2} label="Finans Açıklaması" value={description}
               onChange={(e) => setDescription(e.target.value)} />
             <Alert severity="info">Toplam satış: <strong>{total.toLocaleString('tr-TR', { style: 'currency', currency: 'TRY' })}</strong><br />Bu tutar Finans bölümüne gelir olarak eklenecek.</Alert>

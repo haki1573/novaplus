@@ -44,17 +44,19 @@ export function PageHeader({
           md: 'row',
         }}
         spacing={2}
-        justifyContent="space-between"
-        alignItems={{
+
+
+      
+      sx={{ justifyContent: 'space-between', alignItems: {
           xs: 'stretch',
           md: 'center',
-        }}
-      >
+        } }}>
         <Stack
           direction="row"
           spacing={1.5}
-          alignItems="center"
-        >
+
+        
+        sx={{ alignItems: 'center' }}>
           {icon && (
             <Box
               sx={{

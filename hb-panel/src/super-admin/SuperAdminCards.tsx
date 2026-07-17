@@ -665,11 +665,10 @@ export function SuperAdminCards() {
             <CardContent>
               <Stack
                 direction="row"
-                sx={{
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                }}
-              >
+
+
+              
+              sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
                 <Box>
                   <Typography
                     variant="body2"
@@ -731,9 +730,9 @@ export function SuperAdminCards() {
           slotProps={{
             input: {
               startAdornment: (
-                <InputAdornment position="start">
-                  <SearchRounded />
-                </InputAdornment>
+              <InputAdornment position="start">
+                <SearchRounded />
+              </InputAdornment>
               ),
             },
           }}

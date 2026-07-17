@@ -431,13 +431,14 @@ export function Dashboard() {
               xs: 'column',
               lg: 'row',
             }}
-            justifyContent="space-between"
-            alignItems={{
+
+
+            spacing={2}
+          
+          sx={{ justifyContent: 'space-between', alignItems: {
               xs: 'stretch',
               lg: 'center',
-            }}
-            spacing={2}
-          >
+            } }}>
             <Box>
               <Typography
                 sx={{
@@ -477,8 +478,9 @@ export function Dashboard() {
             <Stack
               direction="row"
               spacing={1}
-              alignItems="center"
-            >
+
+            
+            sx={{ alignItems: 'center' }}>
               <GlobalSearch />
 
               <Tooltip title="Bildirimler">
@@ -580,8 +582,9 @@ export function Dashboard() {
                 <CardContent>
                   <Stack
                     direction="row"
-                    justifyContent="space-between"
-                  >
+
+                  
+                  sx={{ justifyContent: 'space-between' }}>
                     <Box>
                       <Typography
                         sx={{
@@ -653,8 +656,8 @@ export function Dashboard() {
             <Stack
               direction="row"
               spacing={1}
-              alignItems="center"
-              sx={{ mb: 1.5 }}
+
+              sx={{ alignItems: 'center', mb: 1.5 }}
             >
               <WarningAmberRounded
                 color="warning"
@@ -689,9 +692,10 @@ export function Dashboard() {
                   >
                     <Stack
                       direction="row"
-                      justifyContent="space-between"
-                      alignItems="center"
-                    >
+
+
+                    
+                    sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
                       <Typography
                         sx={{
                           fontSize: 13,
@@ -764,8 +768,8 @@ export function Dashboard() {
                   <Box key={item.date}>
                     <Stack
                       direction="row"
-                      justifyContent="space-between"
-                      sx={{ mb: 0.5 }}
+
+                      sx={{ justifyContent: 'space-between', mb: 0.5 }}
                     >
                       <Typography
                         sx={{
@@ -999,15 +1003,16 @@ export function Dashboard() {
               xs: 'column',
               md: 'row',
             }}
-            justifyContent="space-between"
+
             spacing={2}
-          >
+          
+          sx={{ justifyContent: 'space-between' }}>
             <Box sx={{ flex: 1 }}>
               <Stack
                 direction="row"
                 spacing={1}
-                alignItems="center"
-                sx={{ mb: 1.5 }}
+
+                sx={{ alignItems: 'center', mb: 1.5 }}
               >
                 <Avatar
                   sx={{
@@ -1055,12 +1060,10 @@ export function Dashboard() {
                     key={insight}
                     direction="row"
                     spacing={1}
-                    alignItems="flex-start"
-                    sx={{
-                      p: 1.15,
+
+                    sx={{ alignItems: 'flex-start', p: 1.15,
                       borderRadius: 1.5,
-                      bgcolor: 'rgba(255,255,255,0.76)',
-                    }}
+                      bgcolor: 'rgba(255,255,255,0.76)', }}
                   >
                     <CheckCircleRounded
                       sx={{
@@ -1118,9 +1121,9 @@ export function Dashboard() {
           >
             <Stack
               direction="row"
-              justifyContent="space-between"
-              alignItems="center"
-              sx={{ mb: 1.5 }}
+
+
+              sx={{ justifyContent: 'space-between', alignItems: 'center', mb: 1.5 }}
             >
               <Typography
                 sx={{

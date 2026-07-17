@@ -35,12 +35,13 @@ export function ActionBar({
             md: 'row',
           }}
           spacing={1.5}
-          justifyContent="space-between"
-          alignItems={{
+
+
+        
+        sx={{ justifyContent: 'space-between', alignItems: {
             xs: 'stretch',
             md: 'center',
-          }}
-        >
+          } }}>
           <Box>{left}</Box>
           <Box>{right}</Box>
         </Stack>

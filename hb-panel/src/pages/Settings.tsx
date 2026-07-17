@@ -242,7 +242,7 @@ export function Settings() {
               'linear-gradient(135deg, #0f172a 0%, #1d4ed8 100%)',
           }}
         >
-          <Stack direction="row" spacing={2} alignItems="center">
+          <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
             <Box
               sx={{
                 width: 58,
@@ -292,8 +292,8 @@ export function Settings() {
             <Stack
               direction="row"
               spacing={1.5}
-              alignItems="center"
-              sx={{ mb: 2.5 }}
+
+              sx={{ alignItems: 'center', mb: 2.5 }}
             >
               <BusinessRounded color="primary" />
 
@@ -348,8 +348,8 @@ export function Settings() {
             <Stack
               direction="row"
               spacing={1.5}
-              alignItems="center"
-              sx={{ mb: 2 }}
+
+              sx={{ alignItems: 'center', mb: 2 }}
             >
               <NotificationsRounded color="primary" />
 
@@ -412,8 +412,8 @@ export function Settings() {
             <Stack
               direction="row"
               spacing={1.5}
-              alignItems="center"
-              sx={{ mb: 2.5 }}
+
+              sx={{ alignItems: 'center', mb: 2.5 }}
             >
               <LockRounded color="primary" />
 

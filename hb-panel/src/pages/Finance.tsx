@@ -652,8 +652,8 @@ export function Finance() {
                 <Stack
                   direction="row"
                   spacing={1}
-                  alignItems="center"
-                  sx={{ mb: 1.1 }}
+
+                  sx={{ alignItems: 'center', mb: 1.1 }}
                 >
                   <Box
                     sx={{
@@ -1561,8 +1561,8 @@ function DistributionCard({
           >
             <Stack
               direction="row"
-              justifyContent="space-between"
-              sx={{ mb: 0.5 }}
+
+              sx={{ justifyContent: 'space-between', mb: 0.5 }}
             >
               <Typography
                 sx={{
@@ -1654,9 +1654,10 @@ function TotalCard({
     >
       <Stack
         direction="row"
-        justifyContent="space-between"
-        alignItems="center"
-      >
+
+
+      
+      sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
         <Box>
           <Typography
             sx={{

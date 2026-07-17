@@ -43,16 +43,14 @@ export function SectionCard({
             md: 'row',
           }}
           spacing={1.5}
-          justifyContent="space-between"
-          alignItems={{
+
+
+          sx={{ justifyContent: 'space-between', alignItems: {
             xs: 'stretch',
             md: 'center',
-          }}
-          sx={{
-            p: padding,
+          }, p: padding,
             borderBottom:
-              '1px solid #eef2f7',
-          }}
+              '1px solid #eef2f7', }}
         >
           <Box>
             {title && (

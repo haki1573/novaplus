@@ -428,9 +428,10 @@ export function DeviceCenter() {
               <CardContent>
                 <Stack
                   direction="row"
-                  justifyContent="space-between"
-                  alignItems="center"
-                >
+
+
+                
+                sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
                   <Box>
                     <Typography
                       sx={{
@@ -628,9 +629,10 @@ export function DeviceCenter() {
               <CardContent>
                 <Stack
                   direction="row"
-                  justifyContent="space-between"
+
                   spacing={2}
-                >
+                
+                sx={{ justifyContent: 'space-between' }}>
                   <Stack
                     direction="row"
                     spacing={1.5}
@@ -819,15 +821,17 @@ export function DeviceCenter() {
                         xs: 'column',
                         sm: 'row',
                       }}
-                      justifyContent="space-between"
+
                       spacing={1}
-                    >
+                    
+                    sx={{ justifyContent: 'space-between' }}>
                       <Box>
                         <Stack
                           direction="row"
                           spacing={1}
-                          alignItems="center"
-                        >
+
+                        
+                        sx={{ alignItems: 'center' }}>
                           <Typography
                             sx={{
                               fontWeight: 900,

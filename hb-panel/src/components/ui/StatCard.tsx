@@ -39,9 +39,10 @@ export function StatCard({
       <Stack
         direction="row"
         spacing={1.5}
-        justifyContent="space-between"
-        alignItems="center"
-      >
+
+
+      
+      sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
         <Box sx={{ minWidth: 0 }}>
           <Typography
             sx={{

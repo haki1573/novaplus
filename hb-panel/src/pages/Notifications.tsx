@@ -448,9 +448,10 @@ export function Notifications() {
           <Stack
             direction="row"
             spacing={1}
-            flexWrap="wrap"
+
             useFlexGap
-          >
+          
+          sx={{ flexWrap: 'wrap' }}>
             {filters.map((item) => (
               <Chip
                 key={item.value}
@@ -572,11 +573,12 @@ export function Notifications() {
                           sm: 'row',
                         }}
                         spacing={2}
-                        alignItems={{
+
+                      
+                      sx={{ alignItems: {
                           xs: 'stretch',
                           sm: 'flex-start',
-                        }}
-                      >
+                        } }}>
                         <Box
                           sx={{
                             width: 48,
@@ -604,10 +606,11 @@ export function Notifications() {
                           <Stack
                             direction="row"
                             spacing={1}
-                            alignItems="center"
-                            flexWrap="wrap"
+
+
                             useFlexGap
-                          >
+                          
+                          sx={{ alignItems: 'center', flexWrap: 'wrap' }}>
                             {!notification.isRead && (
                               <Box
                                 sx={{
@@ -676,8 +679,9 @@ export function Notifications() {
                             sm: 'column',
                           }}
                           spacing={1}
-                          alignItems="stretch"
-                        >
+
+                        
+                        sx={{ alignItems: 'stretch' }}>
                           {!notification.isRead && (
                             <Button
                               size="small"

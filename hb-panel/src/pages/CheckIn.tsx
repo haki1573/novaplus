@@ -1123,8 +1123,9 @@ export function CheckIn() {
                       <TableCell>
                         <Stack
                           spacing={0.6}
-                          alignItems="flex-start"
-                        >
+
+                        
+                        sx={{ alignItems: 'flex-start' }}>
                           <Chip
                             size="small"
                             icon={

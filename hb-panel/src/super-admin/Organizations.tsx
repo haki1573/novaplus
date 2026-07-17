@@ -30,6 +30,7 @@ import {
   Typography,
 } from '@mui/material';
 
+import { useNavigate } from 'react-router-dom';
 import { api } from '../services/api';
 
 type Gym = {
@@ -57,6 +58,7 @@ type Organization = {
 };
 
 export function Organizations() {
+  const navigate = useNavigate();
   const [organizations, setOrganizations] =
     useState<Organization[]>([]);
 
@@ -261,11 +263,9 @@ export function Organizations() {
           xs: 'column',
           md: 'row',
         }}
+
         spacing={2}
-        sx={{
-          mb: 3,
-          justifyContent: 'space-between',
-        }}
+        sx={{ justifyContent: 'space-between', mb: 3 }}
       >
         <Box>
           <Typography
@@ -427,11 +427,10 @@ export function Organizations() {
               <CardContent>
                 <Stack
                   direction="row"
+
                   spacing={2}
-                  sx={{
-                    justifyContent: 'space-between',
-                  }}
-                >
+                
+                sx={{ justifyContent: 'space-between' }}>
                   <Stack
                     direction="row"
                     spacing={1.5}
@@ -529,15 +528,14 @@ export function Organizations() {
                             xs: 'column',
                             sm: 'row',
                           }}
+
+
                           spacing={1}
-                          sx={{
-                            justifyContent: 'space-between',
-                            alignItems: {
-                              xs: 'stretch',
-                              sm: 'center',
-                            },
-                          }}
-                        >
+                        
+                        sx={{ justifyContent: 'space-between', alignItems: {
+                            xs: 'stretch',
+                            sm: 'center',
+                          } }}>
                           <Box>
                             <Typography
                               sx={{
@@ -562,10 +560,9 @@ export function Organizations() {
                           <Stack
                             direction="row"
                             spacing={1}
-                            sx={{
-                              alignItems: 'center',
-                            }}
-                          >
+
+                          
+                          sx={{ alignItems: 'center' }}>
                             <Chip
                               size="small"
                               label={

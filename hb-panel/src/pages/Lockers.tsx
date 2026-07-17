@@ -712,9 +712,10 @@ export function Lockers() {
                           <CardContent>
                             <Stack
                               direction="row"
-                              justifyContent="space-between"
-                              alignItems="center"
-                            >
+
+
+                            
+                            sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
                               <Typography
                                 variant="h5"
                                 sx={{
@@ -1311,17 +1312,19 @@ export function Lockers() {
                   event.target.value,
                 )
               }
-              inputProps={{
-                maxLength: 6,
-              }}
               fullWidth
               sx={{ mt: 1 }}
-              InputProps={{
-                startAdornment: (
-                  <KeyRounded
-                    sx={{ mr: 1 }}
-                  />
-                ),
+              slotProps={{
+                htmlInput: {
+                  maxLength: 6,
+                },
+                input: {
+                  startAdornment: (
+                    <KeyRounded
+                      sx={{ mr: 1 }}
+                    />
+                  ),
+                },
               }}
             />
           </DialogContent>

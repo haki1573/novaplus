@@ -624,8 +624,9 @@ export function NovaAI() {
                         : 'row'
                     }
                     spacing={1.25}
-                    alignItems="flex-start"
-                  >
+
+                  
+                  sx={{ alignItems: 'flex-start' }}>
                     <Avatar
                       sx={{
                         width: 38,
@@ -703,8 +704,9 @@ export function NovaAI() {
                   <Stack
                     direction="row"
                     spacing={1.25}
-                    alignItems="center"
-                  >
+
+                  
+                  sx={{ alignItems: 'center' }}>
                     <Avatar
                       sx={{
                         width: 38,

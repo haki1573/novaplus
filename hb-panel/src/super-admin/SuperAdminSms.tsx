@@ -13,7 +13,6 @@ import {
   DialogTitle,
   MenuItem,
   Paper,
-  Stack,
   TextField,
   Typography,
 } from '@mui/material';
@@ -268,13 +267,23 @@ export function SuperAdminSms() {
           border: '1px solid #e8edf3',
         }}
       >
-        <Stack
-          direction={{ xs: 'column', md: 'row' }}
-          spacing={2}
-          justifyContent="space-between"
-          alignItems={{ xs: 'stretch', md: 'center' }}
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
+            gap: 2,
+            justifyContent: 'space-between',
+            alignItems: { xs: 'stretch', md: 'center' },
+          }}
         >
-          <Stack direction="row" spacing={2} alignItems="center">
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              gap: 2,
+              alignItems: 'center',
+            }}
+          >
             <SmsRounded sx={{ fontSize: 42 }} />
 
             <Box>
@@ -291,9 +300,15 @@ export function SuperAdminSms() {
                 Paket oluşturun ve salonlara SMS bakiyesi yükleyin.
               </Typography>
             </Box>
-          </Stack>
+          </Box>
 
-          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1}>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: { xs: 'column', sm: 'row' },
+              gap: 1,
+            }}
+          >
             <Button
               variant="contained"
               startIcon={<AddRounded />}
@@ -317,8 +332,8 @@ export function SuperAdminSms() {
             >
               Salona SMS Yükle
             </Button>
-          </Stack>
-        </Stack>
+          </Box>
+        </Box>
       </Paper>
 
       {feedback && (
@@ -371,7 +386,10 @@ export function SuperAdminSms() {
                 }}
               >
                 <CardContent>
-                  <Typography color="text.secondary" fontSize={13}>
+                  <Typography
+                    color="text.secondary"
+                    sx={{ fontSize: 13 }}
+                  >
                     {label}
                   </Typography>
 
@@ -408,10 +426,14 @@ export function SuperAdminSms() {
               }}
             >
               <CardContent>
-                <Stack
-                  direction="row"
-                  justifyContent="space-between"
-                  alignItems="flex-start"
+                <Box
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'flex-start',
+                    gap: 2,
+                  }}
                 >
                   <Box>
                     <Typography variant="h6" sx={{ fontWeight: 900 }}>
@@ -437,7 +459,7 @@ export function SuperAdminSms() {
                       currency: 'TRY',
                     }).format(item.price)}
                   />
-                </Stack>
+                </Box>
 
                 {item.description && (
                   <Typography
@@ -737,7 +759,14 @@ export function SuperAdminSms() {
         <DialogTitle>Yeni SMS Paketi</DialogTitle>
 
         <DialogContent>
-          <Stack spacing={2} sx={{ mt: 1 }}>
+          <Box
+            sx={{
+              mt: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 2,
+            }}
+          >
             <TextField
               label="Paket Adı"
               value={packageForm.name}
@@ -789,7 +818,7 @@ export function SuperAdminSms() {
               minRows={2}
               fullWidth
             />
-          </Stack>
+          </Box>
         </DialogContent>
 
         <DialogActions>
@@ -811,7 +840,14 @@ export function SuperAdminSms() {
         <DialogTitle>Salona SMS Yükle</DialogTitle>
 
         <DialogContent>
-          <Stack spacing={2} sx={{ mt: 1 }}>
+          <Box
+            sx={{
+              mt: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 2,
+            }}
+          >
             <TextField
               select
               label="Salon"
@@ -899,7 +935,7 @@ export function SuperAdminSms() {
               minRows={2}
               fullWidth
             />
-          </Stack>
+          </Box>
         </DialogContent>
 
         <DialogActions>

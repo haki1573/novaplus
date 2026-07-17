@@ -4,7 +4,6 @@ import {
   Box,
   Button,
   Card,
-  CardContent,
   Checkbox,
   Chip,
   CircularProgress,
@@ -824,8 +823,8 @@ export function SmsPanel() {
                   >
                     <Typography
                       color="text.secondary"
-                      fontSize={12}
-                    >
+                      sx={{ fontSize: 12 }}
+>
                       {message.length}/612
                       karakter
                     </Typography>
@@ -1307,16 +1306,14 @@ export function SmsPanel() {
                             >
                               <Stack spacing={0.4}>
                                 <Typography
-                                  fontSize={12}
+                                  sx={{ fontSize: 12 }}
                                   color="text.secondary"
                                 >
-                                  Sağlayıcı:{' '}
-                                  {item.provider ||
-                                    'MOCK'}
+                                  Sağlayıcı: {item.provider || 'MOCK'}
                                 </Typography>
 
                                 <Typography
-                                  fontSize={12}
+                                  sx={{ fontSize: 12 }}
                                   color="text.secondary"
                                 >
                                   Deneme:{' '}
@@ -1325,7 +1322,7 @@ export function SmsPanel() {
 
                                 {item.errorMessage && (
                                   <Typography
-                                    fontSize={12}
+                                    sx={{ fontSize: 12 }}
                                     color="error.main"
                                   >
                                     {item.errorMessage}

@@ -565,11 +565,13 @@ export function Turnstiles() {
                 md: 'row',
               }}
               spacing={2}
-              alignItems={{
-                xs: 'stretch',
-                md: 'center',
+              sx={{
+                alignItems: {
+                  xs: 'stretch',
+                  md: 'center',
+                },
+                justifyContent: 'space-between',
               }}
-              justifyContent="space-between"
             >
               <Box>
                 <Typography
@@ -710,8 +712,10 @@ export function Turnstiles() {
                 <CardContent>
                   <Stack
                     direction="row"
-                    justifyContent="space-between"
                     spacing={2}
+                    sx={{
+                      justifyContent: 'space-between',
+                    }}
                   >
                     <Stack
                       direction="row"
@@ -926,8 +930,10 @@ export function Turnstiles() {
                 >
                   <Stack
                     direction="row"
-                    justifyContent="space-between"
                     spacing={2}
+                    sx={{
+                      justifyContent: 'space-between',
+                    }}
                   >
                     <Box>
                       <Typography
@@ -955,8 +961,10 @@ export function Turnstiles() {
                     </Box>
 
                     <Stack
-                      alignItems="flex-end"
                       spacing={0.5}
+                      sx={{
+                        alignItems: 'flex-end',
+                      }}
                     >
                       <Chip
                         size="small"

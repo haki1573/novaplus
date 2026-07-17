@@ -665,8 +665,10 @@ export function SuperAdminCards() {
             <CardContent>
               <Stack
                 direction="row"
-                alignItems="center"
-                justifyContent="space-between"
+                sx={{
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                }}
               >
                 <Box>
                   <Typography
@@ -726,12 +728,14 @@ export function SuperAdminCards() {
             )
           }
           placeholder="Kart numarası, QR kodu, üye veya durum ara..."
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchRounded />
-              </InputAdornment>
-            ),
+          slotProps={{
+            input: {
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchRounded />
+                </InputAdornment>
+              ),
+            },
           }}
         />
       </Paper>

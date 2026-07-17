@@ -210,21 +210,6 @@ function getDaysRemaining(
   );
 }
 
-function licenseStatusLabel(
-  status?: string,
-) {
-  switch (status) {
-    case 'TRIAL':
-      return 'Deneme';
-    case 'EXPIRED':
-      return 'Süresi Dolmuş';
-    case 'SUSPENDED':
-      return 'Askıda';
-    default:
-      return 'Aktif Lisans';
-  }
-}
-
 function getLicensePresentation(
   gym: Gym,
 ) {

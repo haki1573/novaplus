@@ -22,7 +22,6 @@ import {
   Divider,
   LinearProgress,
   Paper,
-  Stack,
   Typography,
 } from '@mui/material';
 
@@ -256,14 +255,17 @@ export function SuperAdminDashboard() {
 
   return (
     <Box>
-      <Stack
-        direction={{
-          xs: 'column',
-          md: 'row',
+      <Box
+        sx={{
+          mb: 3,
+          display: 'flex',
+          flexDirection: {
+            xs: 'column',
+            md: 'row',
+          },
+          justifyContent: 'space-between',
+          gap: 2,
         }}
-        justifyContent="space-between"
-        spacing={2}
-        sx={{ mb: 3 }}
       >
         <Box>
           <Typography
@@ -301,7 +303,7 @@ export function SuperAdminDashboard() {
             fontWeight: 800,
           }}
         />
-      </Stack>
+      </Box>
 
       {error && (
         <Alert
@@ -337,10 +339,13 @@ export function SuperAdminDashboard() {
             }}
           >
             <CardContent>
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                spacing={1}
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  gap: 1,
+                }}
               >
                 <Box>
                   <Typography
@@ -382,7 +387,7 @@ export function SuperAdminDashboard() {
                 >
                   {card.icon}
                 </Avatar>
-              </Stack>
+              </Box>
             </CardContent>
           </Card>
         ))}
@@ -444,9 +449,13 @@ export function SuperAdminDashboard() {
                   cursor: 'pointer',
                 }}
               >
-                <Stack
-                  direction="row"
-                  justifyContent="space-between"
+                <Box
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    gap: 1,
+                  }}
                 >
                   <Box>
                     <Typography
@@ -475,7 +484,7 @@ export function SuperAdminDashboard() {
                     color="warning"
                     label={`${gym.riskCount} risk`}
                   />
-                </Stack>
+                </Box>
               </Box>
             ),
           )}
@@ -562,11 +571,14 @@ export function SuperAdminDashboard() {
           bgcolor: '#eff6ff',
         }}
       >
-        <Stack
-          direction="row"
-          spacing={1}
-          alignItems="center"
-          sx={{ mb: 1.5 }}
+        <Box
+          sx={{
+            mb: 1.5,
+            display: 'flex',
+            flexDirection: 'row',
+            gap: 1,
+            alignItems: 'center',
+          }}
         >
           <AutoAwesomeRounded
             sx={{ color: '#2563eb' }}
@@ -581,9 +593,15 @@ export function SuperAdminDashboard() {
           >
             Nova AI Operasyon Özeti
           </Typography>
-        </Stack>
+        </Box>
 
-        <Stack spacing={1}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 1,
+          }}
+        >
           {data.recommendations.map(
             (item) => (
               <Box
@@ -607,7 +625,7 @@ export function SuperAdminDashboard() {
               </Box>
             ),
           )}
-        </Stack>
+        </Box>
       </Paper>
     </Box>
   );
@@ -679,10 +697,13 @@ function GymLine({
         cursor: 'pointer',
       }}
     >
-      <Stack
-        direction="row"
-        alignItems="center"
-        spacing={1.2}
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          gap: 1.2,
+        }}
       >
         {prefix && (
           <Typography
@@ -738,7 +759,7 @@ function GymLine({
             {action}
           </Button>
         )}
-      </Stack>
+      </Box>
 
       <Divider sx={{ mt: 1.2 }} />
     </Box>

@@ -9,7 +9,6 @@ import {
   Button,
   CircularProgress,
   Paper,
-  Stack,
   TextField,
   Typography,
 } from '@mui/material';
@@ -230,11 +229,14 @@ export function SuperAdminSettings() {
 
   return (
     <Box>
-      <Stack
-        direction="row"
-        spacing={1.5}
-        alignItems="center"
-        sx={{ mb: 3 }}
+      <Box
+        sx={{
+          mb: 3,
+          display: 'flex',
+          flexDirection: 'row',
+          gap: 1.5,
+          alignItems: 'center',
+        }}
       >
         <Box
           sx={{
@@ -274,7 +276,7 @@ export function SuperAdminSettings() {
             Hesap ve güvenlik bilgilerinizi yönetin.
           </Typography>
         </Box>
-      </Stack>
+      </Box>
 
       {feedback && (
         <Alert
@@ -310,11 +312,14 @@ export function SuperAdminSettings() {
               '1px solid #e8edf3',
           }}
         >
-          <Stack
-            direction="row"
-            spacing={1.25}
-            alignItems="center"
-            sx={{ mb: 2.5 }}
+          <Box
+            sx={{
+              mb: 2.5,
+              display: 'flex',
+              flexDirection: 'row',
+              gap: 1.25,
+              alignItems: 'center',
+            }}
           >
             <AdminPanelSettingsRounded
               color="primary"
@@ -328,9 +333,15 @@ export function SuperAdminSettings() {
             >
               Hesap Bilgileri
             </Typography>
-          </Stack>
+          </Box>
 
-          <Stack spacing={2}>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 2,
+            }}
+          >
             <TextField
               label="Ad Soyad"
               value={displayName}
@@ -356,7 +367,7 @@ export function SuperAdminSettings() {
               fullWidth
               disabled
             />
-          </Stack>
+          </Box>
         </Paper>
 
         <Paper
@@ -368,11 +379,14 @@ export function SuperAdminSettings() {
               '1px solid #e8edf3',
           }}
         >
-          <Stack
-            direction="row"
-            spacing={1.25}
-            alignItems="center"
-            sx={{ mb: 2.5 }}
+          <Box
+            sx={{
+              mb: 2.5,
+              display: 'flex',
+              flexDirection: 'row',
+              gap: 1.25,
+              alignItems: 'center',
+            }}
           >
             <LockRounded color="primary" />
 
@@ -396,9 +410,15 @@ export function SuperAdminSettings() {
                 Yeni şifre en az 8 karakter; büyük harf, küçük harf ve rakam içermelidir.
               </Typography>
             </Box>
-          </Stack>
+          </Box>
 
-          <Stack spacing={2}>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 2,
+            }}
+          >
             <TextField
               label="Mevcut Şifre"
               type="password"
@@ -482,7 +502,7 @@ export function SuperAdminSettings() {
                 'Şifreyi Güncelle'
               )}
             </Button>
-          </Stack>
+          </Box>
         </Paper>
       </Box>
     </Box>

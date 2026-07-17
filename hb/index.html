@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Tenant Spor Salonu Yönetim Paneli</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1, h2 { color: #333; }
+        .tenant-selector { background: #34495e; color: white; padding: 15px; border-radius: 6px; margin-bottom: 20px; }
+        .tenant-selector label { font-weight: bold; margin-right: 10px; }
+        .tenant-selector select { padding: 8px; font-size: 16px; border-radius: 4px; border: none; width: 250px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+        button { background-color: #2ecc71; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #27ae60; }
+        .btn-delete { background-color: #e74c3c; padding: 6px 10px; font-size: 14px; }
+        .btn-delete:hover { background-color: #c0392b; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #2c3e50; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🏢 SaaS Spor Salonu Yönetim Paneli</h1>
+    
+    <div class="tenant-selector">
+        <label for="gymSelect">Çalıştığınız Salonu Seçin:</label>
+        <select id="gymSelect" onchange="onGymChange()">
+            </select>
+    </div>
+    
+    <hr>
+    
+    <h2>Yeni Üye Kaydı</h2>
+    <form id="memberForm">
+        <div class="form-group">
+            <label for="firstName">Adı</label>
+            <input type="text" id="firstName" required>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Soyadı</label>
+            <input type="text" id="lastName" required>
+        </div>
+        <div class="form-group">
+            <label for="email">E-posta</label>
+            <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Telefon</label>
+            <input type="text" id="phone" required>
+        </div>
+        <button type="submit">Üyeyi Seçili Salona Kaydet</button>
+    </form>
+
+    <h2>Kayıtlı Üyeler</h2>
+    <table id="membersTable">
+        <thead>
+            <tr>
+                <th>Adı</th>
+                <th>Soyadı</th>
+                <th>E-posta</th>
+                <th>Telefon</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<script>
+    const BASE_URL = 'http://localhost:3000';
+    let currentGymId = '';
+
+    // 1. Sistemdeki Tüm Salonları (Tenants) Çekip Menüye Dolduran Fonksiyon
+    async function loadGyms() {
+        try {
+            const response = await fetch(`${BASE_URL}/gyms`);
+            const gyms = await response.json();
+            
+            const select = document.getElementById('gymSelect');
+            select.innerHTML = '';
+
+            if(gyms.length === 0) {
+                select.innerHTML = '<option value="">Önce Salon Oluşturun</option>';
+                return;
+            }
+
+            gyms.forEach(gym => {
+                const option = `<option value="${gym.id}">${gym.name}</option>`;
+                select.innerHTML += option;
+            });
+
+            // İlk salonu varsayılan olarak seç ve üyelerini yükle
+            currentGymId = gyms[0].id;
+            loadMembers();
+        } catch (error) {
+            console.error('Salonlar yüklenemedi:', error);
+        }
+    }
+
+    // 2. Seçili Salonun Üyelerini Getiren Fonksiyon
+    async function loadMembers() {
+        if (!currentGymId) return;
+        
+        try {
+            const response = await fetch(`${BASE_URL}/gyms/${currentGymId}/members`);
+            const members = await response.json();
+            
+            const tbody = document.querySelector('#membersTable tbody');
+            tbody.innerHTML = ''; 
+
+            members.forEach(member => {
+                const row = `
+                    <tr>
+                        <td>${member.firstName}</td>
+                        <td>${member.lastName}</td>
+                        <td>${member.email}</td>
+                        <td>${member.phone}</td>
+                        <td>
+                            <button class="btn-delete" onclick="deleteMember('${member.id}')">Sil</button>
+                        </td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        } catch (error) {
+            console.error('Üyeler çekilemedi:', error);
+        }
+    }
+
+    // Menüde salon değiştiğinde tetiklenen fonksiyon
+    function onGymChange() {
+        currentGymId = document.getElementById('gymSelect').value;
+        loadMembers(); // Yeni seçilen salonun üyelerini getir
+    }
+
+    // Üye Silme Fonksiyonu
+    async function deleteMember(memberId) {
+        if (confirm('Bu üyeyi silmek istediğinize emin misiniz?')) {
+            try {
+                const response = await fetch(`${BASE_URL}/gyms/${currentGymId}/members/${memberId}`, {
+                    method: 'DELETE'
+                });
+
+                if (response.ok) {
+                    alert('Üye başarıyla silindi!');
+                    loadMembers();
+                }
+            } catch (error) {
+                alert('Silme işlemi sırasında bir hata oluştu.');
+            }
+        }
+    }
+
+    // Yeni Üye Ekleme Formu
+    document.getElementById('memberForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if(!currentGymId) {
+            alert('Lütfen önce bir salon seçin!');
+            return;
+        }
+
+        const memberData = {
+            firstName: document.getElementById('firstName').value,
+            lastName: document.getElementById('lastName').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value
+        };
+
+        try {
+            const response = await fetch(`${BASE_URL}/gyms/${currentGymId}/members`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(memberData)
+            });
+
+            if (response.ok) {
+                alert('Üye seçili salona başarıyla kaydedildi!');
+                document.getElementById('memberForm').reset();
+                loadMembers();
+            }
+        } catch (error) {
+            alert('Kayıt esnasında bir hata oluştu.');
+        }
+    });
+
+    // Sayfa açıldığında önce salonları yükle
+    loadGyms();
+</script>
+
+</body>
+</html>

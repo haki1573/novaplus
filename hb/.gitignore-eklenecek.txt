@@ -1,0 +1,11 @@
+
+# NovaPlus secrets
+.env
+.env.*
+!.env.example
+
+# Local databases and backups
+database.db
+database.db-shm
+database.db-wal
+backups/

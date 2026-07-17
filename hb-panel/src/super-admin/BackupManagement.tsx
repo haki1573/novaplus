@@ -381,13 +381,15 @@ export function BackupManagement() {
           xs: 'column',
           sm: 'row',
         }}
-        justifyContent="space-between"
-        alignItems={{
-          xs: 'flex-start',
-          sm: 'center',
-        }}
         spacing={2}
-        sx={{ mb: 3 }}
+        sx={{
+          mb: 3,
+          justifyContent: 'space-between',
+          alignItems: {
+            xs: 'flex-start',
+            sm: 'center',
+          },
+        }}
       >
         <Box>
           <Typography
